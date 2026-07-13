@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Où partons-nous en voyage de noces ? - Gabriel & Elsa</title>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Tom Select CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    
+    <!-- ÉCRAN 1 : ACCUEIL -->
+    <div id="screen-1" class="screen active">
+      <h1>Où partons-nous en voyage de noces ?</h1>
+      <p class="subtitle">Après le mariage, une nouvelle aventure nous attend...</p>
+      
+      <div class="participant-counter">
+  <strong id="participant-count">0</strong>
+  <div class="participant-counter-text">invités ont déjà tenté leur chance</div>
+</div>
+
+      
+      <!-- Section : Règles du jeu -->
+      <div class="game-rules">
+        <h2 class="rules-title">Comment jouer ?</h2>
+        
+        <div class="rules-grid">
+          <div class="rule-card">
+            <div class="rule-icon">🗺️</div>
+            <h3>Devinez 2 pays</h3>
+            <p>Trouvez les deux destinations de notre voyage de noces</p>
+          </div>
+          
+          <div class="rule-card">
+            <div class="rule-icon">💡</div>
+            <h3>Achetez des indices</h3>
+            <p>Chaque indice coûte 10 points. Choisissez judicieusement !</p>
+          </div>
+          
+          <div class="rule-card">
+            <div class="rule-icon">🏆</div>
+            <h3>Gagnez des récompenses</h3>
+            <p>Tous ceux qui trouvent reçoivent un souvenir. Le premier gagne un lot spécial !</p>
+          </div>
+          
+          <div class="rule-card">
+            <div class="rule-icon">📧</div>
+            <h3>Une seule participation</h3>
+            <p>Votre email garantit une participation unique.</p>
+          </div>
+        </div>
+        
+        <div class="rules-note">
+          <p>🤫 <strong>Psst...</strong> Votre score reste secret jusqu'à notre départ le <strong>14 septembre 2026</strong></p>
+        </div>
+      </div>
+      
+      <button id="start-btn" class="btn btn-primary">Commencer l'aventure</button>
+    </div>
+    
+    <!-- ÉCRAN 2 : INDICES -->
+    <div id="screen-2" class="screen">
+      <h2>Découvrez les indices</h2>
+      <p>Chaque indice vous coûtera 10 points. Choisissez judicieusement !</p>
+      
+      <div id="clues-container"></div>
+      
+      <button id="submit-clues-btn" class="btn btn-primary">Soumettre ma réponse</button>
+    </div>
+    
+    <!-- ÉCRAN 3 : RÉPONSE -->
+    <div id="screen-3" class="screen">
+      <h2>Votre réponse</h2>
+      
+      <form class="answer-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="pays1">Premier pays *</label>
+          <select id="pays1" required></select>
+        </div>
+        
+        <div class="form-group">
+          <label for="pays2">Deuxième pays *</label>
+          <select id="pays2" required></select>
+        </div>
+        
+        <button id="submit-answer-btn" class="btn btn-primary" type="button" disabled>
+          Envoyer
+        </button>
+      </form>
+    </div>
+    
+    <!-- ÉCRAN 4 : CONFIRMATION FINALE -->
+    <div id="screen-4" class="screen">
+      <div class="final-message">
+        <h2>Merci ❤️</h2>
+        <p>Votre réponse a bien été enregistrée.</p>
+        <p>Nous révélerons la destination lors de notre départ</p>
+        <p><strong>📅 lundi 14 septembre 2026</strong></p>
+        <p>La réponse vous sera envoyée par email.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- MODALE DE CONFIRMATION -->
+  <div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+      <h3>Est-ce votre ultime bafouille ?</h3>
+      <p>Une fois validée, votre réponse ne pourra plus être modifiée.</p>
+      <div class="modal-buttons">
+        <button id="modal-cancel" class="btn btn-secondary">Retour</button>
+        <button id="modal-confirm" class="btn btn-primary">Oui, j'assume 😄</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+  <script src="clues.js"></script>
+  <script src="countries.js"></script>
+  <script src="api.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

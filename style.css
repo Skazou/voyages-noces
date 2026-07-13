@@ -1,0 +1,942 @@
+/* Import des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Variables CSS - Nouvelle palette bleu hortensia & vert feuille */
+:root {
+  --color-blue: #8BA5D5;        /* Bleu hortensia pastel */
+  --color-blue-dark: #6B85B5;   /* Bleu hortensia foncé */
+  --color-green: #7CAA6D;       /* Vert feuille */
+  --color-green-dark: #5C8A4D;  /* Vert feuille foncé */
+  --color-white: #FAF9F6;       /* Blanc cassé */
+  --color-dark: #2C3E50;        /* Texte principal */
+  --color-gray: #95A5A6;        /* Gris neutre */
+  
+  --font-title: 'Cormorant Garamond', serif;
+  --font-body: 'Poppins', sans-serif;
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+  
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Container principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  min-height: 100vh;
+}
+
+/* Typographie */
+h1, h2, h3 {
+  font-family: var(--font-title);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--color-blue);
+  margin-bottom: var(--spacing-sm);
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--color-blue-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--color-dark);
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Écrans */
+.screen {
+  display: none;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-in forwards;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   ÉCRAN 1 : ACCUEIL
+   ======================================== */
+
+#screen-1 {
+  text-align: center;
+  padding-top: var(--spacing-xl);
+  position: relative;
+  min-height: 100vh;
+}
+
+#screen-1.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Fond décoratif avec formes géométriques */
+#screen-1::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+#screen-1::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(225deg, var(--color-green), var(--color-blue));
+  border-radius: 50%;
+  opacity: 0.08;
+  z-index: -1;
+}
+
+/* Titre principal amélioré */
+#screen-1 h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  animation: titleFadeIn 1s ease-out;
+}
+
+@keyframes titleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: var(--color-gray);
+  font-style: italic;
+  margin-bottom: var(--spacing-xl);
+  font-weight: 300;
+  animation: subtitleFadeIn 1s ease-out 0.3s backwards;
+}
+
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Compteur redesigné */
+.participant-counter {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  color: white;
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-radius: 20px;
+  margin: var(--spacing-xl) auto;
+  max-width: 450px;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 40px rgba(139, 165, 213, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: counterFadeIn 1s ease-out 0.6s backwards;
+}
+
+@keyframes counterFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Effet de brillance sur le compteur */
+.participant-counter::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.participant-counter strong {
+  font-size: 3.5rem;
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Texte du compteur */
+.participant-counter-text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+/* Section des règles du jeu */
+.game-rules {
+  max-width: 900px;
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-lg);
+  animation: rulesFadeIn 1s ease-out 1.2s backwards;
+}
+
+@keyframes rulesFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rules-title {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--color-blue-dark);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 600;
+}
+
+/* Grille des règles */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Carte de règle */
+.rule-card {
+  background: white;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.rule-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.rule-card:hover::before {
+  opacity: 0.05;
+}
+
+.rule-card:hover {
+  border-color: var(--color-blue);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(139, 165, 213, 0.25);
+}
+
+.rule-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Icône de règle */
+.rule-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+  filter: grayscale(0.3);
+  transition: all 0.4s ease;
+}
+
+.rule-card:hover .rule-icon {
+  filter: grayscale(0);
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* Titre de règle */
+.rule-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-xs);
+  font-weight: 600;
+}
+
+/* Description de règle */
+.rule-card p {
+  font-size: 0.95rem;
+  color: var(--color-gray);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Note importante */
+.rules-note {
+  background: linear-gradient(135deg, rgba(139, 165, 213, 0.1), rgba(124, 170, 109, 0.1));
+  border-left: 4px solid var(--color-green);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.rules-note p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-dark);
+  font-style: italic;
+}
+
+.rules-note strong {
+  color: var(--color-blue-dark);
+  font-weight: 600;
+}
+
+/* Boutons */
+.btn {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  text-transform: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-green), var(--color-blue));
+  color: white;
+  box-shadow: 0 4px 15px rgba(124, 170, 109, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 170, 109, 0.4);
+}
+
+.btn-secondary {
+  background: var(--color-green);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: var(--color-green-dark);
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  background: var(--color-gray);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Bouton principal amélioré */
+#start-btn {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--color-green), var(--color-blue));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(124, 170, 109, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  animation: buttonFadeIn 1s ease-out 0.9s backwards;
+}
+
+@keyframes buttonFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#start-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+#start-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+#start-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 50px rgba(124, 170, 109, 0.5);
+}
+
+#start-btn:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* ========================================
+   ÉCRAN 2 : INDICES
+   ======================================== */
+
+#screen-2 {
+  padding-top: var(--spacing-lg);
+}
+
+#screen-2 h2 {
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+
+#screen-2 > p {
+  text-align: center;
+  color: var(--color-gray);
+  margin-bottom: 2rem;
+}
+
+#clues-container {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.clue-card {
+  background: white;
+  border: 2px solid var(--color-blue);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(139, 165, 213, 0.1);
+}
+
+.clue-card:hover {
+  box-shadow: 0 8px 25px rgba(139, 165, 213, 0.25);
+  transform: translateY(-3px);
+  border-color: var(--color-green);
+}
+
+.clue-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.clue-icon {
+  font-size: 2rem;
+}
+
+.clue-header h3 {
+  flex: 1;
+  margin: 0;
+  color: var(--color-blue-dark);
+  font-weight: 800;
+}
+
+.clue-cost {
+  font-size: 0.9rem;
+  color: var(--color-green-dark);
+  font-weight: 600;
+  background: rgba(124, 170, 109, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+.clue-content {
+  margin-bottom: var(--spacing-md);
+  min-height: 30px;
+}
+
+.clue-item {
+  background: linear-gradient(135deg, rgba(139, 165, 213, 0.05), rgba(124, 170, 109, 0.05));
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  border-left: 3px solid var(--color-green);
+  border-radius: 4px;
+  font-size: 1rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.clue-reveal-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  color: white;
+  border: none;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.clue-reveal-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--color-blue-dark), var(--color-green-dark));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 165, 213, 0.3);
+}
+
+.clue-reveal-btn:disabled {
+  background: var(--color-gray);
+  cursor: not-allowed;
+}
+
+#submit-clues-btn {
+  display: block;
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1.2rem;
+  border-radius: 50px;
+}
+
+/* ========================================
+   ÉCRAN 3 : RÉPONSE
+   ======================================== */
+
+#screen-3 {
+  padding-top: var(--spacing-lg);
+}
+
+#screen-3 h2 {
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.answer-form {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-blue);
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(139, 165, 213, 0.15);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: 500;
+  color: var(--color-blue-dark);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--color-gray);
+  border-radius: var(--border-radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgba(139, 165, 213, 0.1);
+}
+
+/* Tom Select customization */
+.ts-wrapper {
+  margin-bottom: 0;
+}
+
+.ts-control {
+  border: 2px solid var(--color-gray) !important;
+  border-radius: var(--border-radius) !important;
+  padding: var(--spacing-xs) !important;
+  font-family: var(--font-body) !important;
+}
+
+.ts-control:focus {
+  border-color: var(--color-blue) !important;
+  box-shadow: 0 0 0 3px rgba(139, 165, 213, 0.1) !important;
+}
+
+.ts-dropdown {
+  border: 2px solid var(--color-blue) !important;
+  border-radius: var(--border-radius) !important;
+}
+
+.ts-dropdown .active {
+  background-color: var(--color-blue) !important;
+}
+
+.ts-dropdown .option:hover {
+  background-color: rgba(139, 165, 213, 0.1) !important;
+}
+
+/* ========================================
+   MODALE DE CONFIRMATION
+   ======================================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  max-width: 500px;
+  text-align: center;
+  animation: scaleIn 0.3s ease-out;
+  border: 3px solid var(--color-blue);
+  box-shadow: 0 10px 50px rgba(139, 165, 213, 0.3);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content h3 {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+  font-size: 2rem;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.modal-buttons button {
+  flex: 1;
+}
+
+/* ========================================
+   ÉCRAN 4 : CONFIRMATION FINALE
+   ======================================== */
+
+#screen-4 {
+  text-align: center;
+  padding-top: var(--spacing-xl);
+  min-height: 100vh;
+}
+
+#screen-4.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.final-message {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-green));
+  color: white;
+  padding: var(--spacing-xl);
+  border-radius: 20px;
+  margin: var(--spacing-lg) auto;
+  max-width: 600px;
+  box-shadow: 0 15px 50px rgba(139, 165, 213, 0.4);
+  animation: finalFadeIn 0.8s ease-out;
+}
+
+@keyframes finalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.final-message h2 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.final-message p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-sm);
+}
+
+.final-message strong {
+  font-size: 1.4rem;
+  display: block;
+  margin-top: var(--spacing-sm);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    padding: var(--spacing-sm);
+  }
+  
+  /* Écran 1 */
+  #screen-1 h1 {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .participant-counter {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 1rem;
+  }
+  
+  .participant-counter strong {
+    font-size: 2.5rem;
+  }
+  
+  #start-btn {
+    font-size: 1.1rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+  
+  /* Règles */
+  .game-rules {
+    padding: var(--spacing-md);
+  }
+  
+  .rules-title {
+    font-size: 1.8rem;
+  }
+  
+  .rules-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .rule-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .rule-icon {
+    font-size: 2.5rem;
+  }
+  
+  .rule-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .rule-card p {
+    font-size: 0.9rem;
+  }
+  
+  .rules-note {
+    padding: var(--spacing-sm);
+  }
+  
+  .rules-note p {
+    font-size: 0.9rem;
+  }
+  
+  /* Formulaire */
+  .answer-form {
+    padding: var(--spacing-md);
+  }
+  
+  /* Modale */
+  .modal-content {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+  
+  /* Message final */
+  .final-message {
+    padding: var(--spacing-lg);
+  }
+  
+  .final-message h2 {
+    font-size: 2rem;
+  }
+  
+  .final-message p {
+    font-size: 1rem;
+  }
+}
+
+/* Animations supplémentaires */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.btn-primary:active {
+  animation: pulse 0.3s ease;
+}
+
+/* Style pour les drapeaux dans Tom Select */
+.ts-dropdown .option,
+.ts-control .item {
+  font-size: 1.1rem;
+}
