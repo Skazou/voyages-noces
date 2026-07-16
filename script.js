@@ -102,10 +102,14 @@ function showScreen(screenNumber) {
     screen.classList.add('active');
     gameState.currentScreen = screenNumber;
     console.log('Écran', screenNumber, 'affiché');
+    
+    // Scroll en haut de la page
+    window.scrollTo(0, 0);
   } else {
     console.error('Écran', screenNumber, 'introuvable !');
   }
 }
+
 
 // Initialise l'écran des indices
 function initCluesScreen() {
