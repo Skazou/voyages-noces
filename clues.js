@@ -1,7 +1,7 @@
 // Structure des indices du jeu
 const CLUES = {
   gratuit: {
-    title: "INDICE GRATUIT",
+    title: "Gratuit",
     cost: 0,
     icon: "🎁",
     clues: [
@@ -9,19 +9,18 @@ const CLUES = {
     ]
   },
   voyage: {
-    title: "VOYAGE",
+    title: "Voyage",
     cost: 10,
     icon: "✈️",
     clues: [
       "Nous partons 18 jours.",
       "Nous prenons un vol long courrier.",
-        "L'un de nous est déjà allé sur ce continent",
-      "Nous passerons par deux capitales.",
-        "Notre itinéraire fait une boucle."
+      "Nous faisons une boucle.",
+      "Nous passerons par deux capitales."
     ]
   },
   nature: {
-    title: "NATURE",
+    title: "Nature",
     cost: 10,
     icon: "🌿",
     clues: [
@@ -32,24 +31,25 @@ const CLUES = {
     ]
   },
   equipement: {
-    title: "ÉQUIPEMENT",
+    title: "Équipement",
     cost: 10,
-    icon: "🧳",
+    icon: "🎒",
     clues: [
+      "Nous avons un permis de conduire international.",
       "Nous prenons des chaussures de marche.",
       "Une polaire et un coupe-vent seront dans notre valise.",
       "Nous emportons également un maillot de bain."
     ]
   },
   organisation: {
-    title: "ORGANISATION",
+    title: "Organisation",
     cost: 10,
     icon: "📋",
     clues: [
-      "Nous avons un permis de conduire international.",
-        "Nous faisons ponctuellement appel à des guides.",
+      "Nous faisons ponctuellement appel à des guides.",
       "Nous avons reçu des recommandations sanitaires spécifiques.",
-        "Les deux pays possèdent une langue officielle commune."
+      "Les deux pays possèdent une langue officielle commune.",
+      "Notre voyage se déroulera dans deux pays."
     ]
   }
 };
