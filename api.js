@@ -30,15 +30,13 @@ async function saveParticipation(participationData) {
   try {
     const response = await fetch(API_URL, {
       method: 'POST',
-      mode: 'no-cors', // Important pour Google Apps Script
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(participationData)
     });
     
-    // Avec no-cors, on ne peut pas lire la réponse
-    // On considère que c'est réussi si pas d'erreur
     return { success: true };
   } catch (error) {
     console.error("Erreur lors de l'enregistrement:", error);
