@@ -14,8 +14,37 @@
 <body>
   <div class="container">
     
+    <!-- ÉCRAN 0 : SAISIE EMAIL -->
+    <div id="screen-0" class="screen active">
+      <h1>Où partons-nous en voyage de noces ?</h1>
+      <p class="subtitle">Après le mariage, une nouvelle aventure nous attend...</p>
+      
+      <div class="email-section">
+        <h2>Commençons ! 👋</h2>
+        <p class="email-intro">Entrez votre email pour accéder au jeu</p>
+        
+        <form onsubmit="return false;">
+          <div class="form-group">
+            <input type="email" id="verification-email" placeholder="Votre email" required>
+          </div>
+          
+          <button id="verify-email-btn" class="btn btn-primary" type="button">
+            Accéder au jeu
+          </button>
+        </form>
+        
+        <div class="email-info">
+          <p><strong>💾 Votre progression sera sauvegardée</strong></p>
+          <p>Les indices que vous consulterez seront enregistrés sur cet appareil. Vous pourrez revenir plus tard et votre progression sera conservée.</p>
+          <p style="margin-top: var(--spacing-md); font-size: 0.95rem; color: var(--color-gray);">
+            ℹ️ Un seul email par personne pour garantir l'équité du jeu.
+          </p>
+        </div>
+      </div>
+    </div>
+    
     <!-- ÉCRAN 1 : ACCUEIL -->
-    <div id="screen-1" class="screen active">
+    <div id="screen-1" class="screen">
       <h1>Où partons-nous en voyage de noces ?</h1>
       <p class="subtitle">Après le mariage, une nouvelle aventure nous attend...</p>
       
@@ -65,7 +94,10 @@
     <!-- ÉCRAN 2 : INDICES -->
     <div id="screen-2" class="screen">
       <h2>Découvrez les indices</h2>
-      <p>Chaque indice vous coûtera 10 points. Choisissez judicieusement !</p>
+      
+      <div class="clues-stats">
+        <p id="clues-info">Vous avez consulté <strong id="clues-count">0</strong> indice(s), votre score max est de <strong id="score-remaining">200</strong> points pour l'instant</p>
+      </div>
       
       <div id="clues-container"></div>
       
@@ -83,8 +115,8 @@
         </div>
         
         <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" id="email" required>
+          <label for="email-display">Email *</label>
+          <input type="email" id="email-display" disabled>
         </div>
         
         <div class="form-group">
