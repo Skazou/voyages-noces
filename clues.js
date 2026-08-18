@@ -35,9 +35,9 @@ const CLUES = {
     cost: 10,
     icon: "🎒",
     clues: [
-      "Nous avons un permis de conduire international.",
       "Nous prenons des chaussures de marche.",
       "Une polaire et un coupe-vent seront dans notre valise.",
+      "Nous avons un permis de conduire international.",
       "Nous emportons également un maillot de bain."
     ]
   },
@@ -49,7 +49,7 @@ const CLUES = {
       "Nous faisons ponctuellement appel à des guides.",
       "Nous avons reçu des recommandations sanitaires spécifiques.",
       "Les deux pays possèdent une langue officielle commune.",
-      "Notre voyage se déroulera dans deux pays."
+      "Nous ferons 7 étapes différentes lors de notre voyage."
     ]
   }
 };
