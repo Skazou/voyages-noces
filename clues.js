@@ -1,10 +1,11 @@
 // Structure des indices du jeu
 const CLUES = {
   gratuit: {
-    title: "Gratuit",
+    title: "Gratuits",
     cost: 0,
     icon: "🎁",
     clues: [
+      "Nous partons 18 jours.",
       "L'un des deux pays possède la lettre \"a\" dans son nom."
     ]
   },
@@ -13,10 +14,10 @@ const CLUES = {
     cost: 10,
     icon: "✈️",
     clues: [
-      "Nous partons 18 jours.",
       "Nous prenons un vol long courrier.",
       "Nous faisons une boucle.",
-      "Nous passerons par deux capitales."
+      "Nous passerons par deux capitales.",
+      "Nous avons un permis de conduire international."
     ]
   },
   nature: {
@@ -24,10 +25,10 @@ const CLUES = {
     cost: 10,
     icon: "🌿",
     clues: [
-      "Nous ferons plusieurs randonnées.",
-      "Nous verrons des félins.",
+      "Nous ferons plusieurs jours de randonnée.",
+      "Nous observerons beaucoup d'oiseaux.",
       "Nous verrons de très gros mammifères.",
-      "Nous observerons également des oiseaux."
+      "Nous verrons des félins."
     ]
   },
   equipement: {
@@ -35,10 +36,10 @@ const CLUES = {
     cost: 10,
     icon: "🎒",
     clues: [
+      "Nous partons avec une valise et un sac à dos chacun",
       "Nous prenons des chaussures de marche.",
       "Une polaire et un coupe-vent seront dans notre valise.",
-      "Nous avons un permis de conduire international.",
-      "Nous emportons également un maillot de bain."
+      "Nous emportons un maillot de bain et des lunettes de soleil."
     ]
   },
   organisation: {
